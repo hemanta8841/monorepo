@@ -20,17 +20,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-     - name: Checkout
-       uses: actions/checkout@v3
-       with:
-          sparse-checkout: |
-            ${{env.MODULE}}
-          token: ${{ github.token }}
+     # - name: Checkout
+     #   uses: actions/checkout@v3
+     #   with:
+     #      sparse-checkout: |
+     #        ${{env.MODULE}}
+     #      token: ${{ github.token }}
 
-     - name: listof files
-       run: |
-         ls -la
-         echo "$MODULE"
+     # - name: listof files
+     #   run: |
+     #     ls -la
+     #     echo "$MODULE"
      - uses: dorny/paths-filter@v3
        id: filter
        with:
@@ -38,6 +38,7 @@ jobs:
             # Paths to files will be available in `${FILTER_NAME}_files` output variable.
             # Paths will be formatted as JSON array
             list-files: json
+            token: ${{ github.token }}
 
     # In this example all changed files are passed to the following action to do
     # some custom processing.

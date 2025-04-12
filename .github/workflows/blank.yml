@@ -37,8 +37,9 @@ jobs:
             # Enable listing of files matching each filter.
             # Paths to files will be available in `${FILTER_NAME}_files` output variable.
             # Paths will be formatted as JSON array
-            list-files: json
             token: ${{ github.token }}
+            list-files: json
+            
 
     # In this example all changed files are passed to the following action to do
     # some custom processing.

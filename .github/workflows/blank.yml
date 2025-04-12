@@ -30,6 +30,7 @@ jobs:
      - name: listof files
        run: |
          ls -la
+         echo "$MODULE"
      - uses: dorny/paths-filter@v3
        id: filter
        with:

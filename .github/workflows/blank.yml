@@ -18,6 +18,13 @@ jobs:
   changed_files:
     runs-on: ubuntu-latest
     steps:
+
+     - name: Checkout
+       uses: actions/checkout@v3
+       with:
+          fetch-depth: 0
+          token: ${{ github.token }}
+          
      - uses: dorny/paths-filter@v3
        id: filter
        with:

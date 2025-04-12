@@ -46,3 +46,6 @@ jobs:
             filters: |
               changed:
                 - '**'
+     - name: print files
+       run: |
+        echo "${{ steps.filter.outputs.changed_files }}"

@@ -48,7 +48,7 @@ jobs:
                 - '**'
      - name: print files
        run: |
-        S= fromJOSN(echo "${{ steps.filter.outputs.changed_files }}")
+        echo "${{ fromJSON(steps.filter.outputs.changed_files) }}"
         echo "${{ steps.filter.outputs.changed_files }}" | cut -d '/' -f 1
       
   

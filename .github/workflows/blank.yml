@@ -48,7 +48,7 @@ jobs:
                 - '**'
      - name: print files
        run: |
-        S =  "${{ steps.filter.outputs.changed_files }}"
+        S = echo "${{ steps.filter.outputs.changed_files }}"
         echo "$S"
         echo "${{ steps.filter.outputs.changed_files }}" | cut -d '/' -f 1
       

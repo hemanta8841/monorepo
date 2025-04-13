@@ -53,3 +53,12 @@ jobs:
         echo "${{ steps.filter.outputs.changed_files }}" | cut -d '/' -f 1
       
   
+     - name: get properties
+       id: json_properties
+       uses: ActionsTools/read-json-action@main
+        with:
+          file_path: "var.json"
+      
+      - run: |
+          echo ${{steps.json_properties.outputs.modulemap}}
+       

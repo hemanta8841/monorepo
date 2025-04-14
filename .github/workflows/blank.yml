@@ -57,7 +57,7 @@ jobs:
        id: json_properties
        uses: ActionsTools/read-json-action@main
        with:
-          file_path: "var.json"
+          file_path: "module1/config.json"
       
      - run: |
           echo ${{steps.json_properties.outputs.modulemap}}

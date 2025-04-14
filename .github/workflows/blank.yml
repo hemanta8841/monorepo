@@ -66,6 +66,7 @@ jobs:
       
      - run: |
           echo ${{steps.json_properties.outputs.modulemap}}
+          echo "modulemap=${{steps.json_properties.outputs.modulemap}}" >> "$GITHUB_OUTPUT"
 
 
   build:

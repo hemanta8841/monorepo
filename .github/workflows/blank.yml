@@ -54,7 +54,7 @@ jobs:
        run: |
         echo "${{ steps.filter.outputs.changed_files }}"
 
-        moudle=${{ steps.filter.outputs.changed_files }} | cut -d '/' -f 1 
+        moudle=echo "${{ steps.filter.outputs.changed_files }}" | cut -d '/' -f 1 
         
         echo >> "$moudle"
       

@@ -54,7 +54,9 @@ jobs:
        run: |
         echo "${{ steps.filter.outputs.changed_files }}"
 
-        echo "moudle=${{ steps.filter.outputs.changed_files }} | cut -d '/' -f 1" >> "$GITHUB_OUTPUT"
+        moudle=${{ steps.filter.outputs.changed_files }} | cut -d '/' -f 1 
+        
+        echo >> "$moudle"
       
   
      - name: get properties
@@ -79,6 +81,6 @@ jobs:
        - name: echo config
          run: |
            echo ${{ needs.changed_files.outputs.modulemap }}
-           echo ${{ needs.changed_files.outputs.module }}
+           # echo ${{ needs.changed_files.outputs.module }}
        
        

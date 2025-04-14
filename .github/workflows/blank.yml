@@ -20,6 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
          modulemap: ${{ steps.json_properties.outputs.modulemap }}
+         module: ${{ steps.json_properties.outputs.module }}
         
     steps:
 
@@ -53,7 +54,7 @@ jobs:
        run: |
         echo "${{ steps.filter.outputs.changed_files }}"
 
-        echo "${{ steps.filter.outputs.changed_files }}" | cut -d '/' -f 1
+        echo "moudle=${{ steps.filter.outputs.changed_files }} | cut -d '/' -f 1" >> "$GITHUB_OUTPUT"
       
   
      - name: get properties
@@ -78,5 +79,6 @@ jobs:
        - name: echo config
          run: |
            echo ${{ needs.changed_files.outputs.modulemap }}
+           echo ${{ needs.changed_files.outputs.module }}
        
        

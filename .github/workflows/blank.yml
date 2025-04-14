@@ -18,6 +18,9 @@ env:
 jobs:
   changed_files:
     runs-on: ubuntu-latest
+    outputs:
+         output1: ${{ steps.json_properties.outputs.modulemap }}
+        
     steps:
 
      - name: Checkout
@@ -55,6 +58,8 @@ jobs:
   
      - name: get properties
        id: json_properties
+  
+
        uses: ActionsTools/read-json-action@main
        with:
           file_path: "module1/config.json"
@@ -71,6 +76,6 @@ jobs:
 
        - name: echo config
          run: |
-           echo ${{ changed_files.json_properties.outputs.modulemap }}
+           echo ${{ needs.changed_files.outputs.modulemap }}
        
        

@@ -61,4 +61,16 @@ jobs:
       
      - run: |
           echo ${{steps.json_properties.outputs.modulemap}}
+
+
+  build:
+  
+   needs: changed_files
+   runs-on: ubuntu-latest
+   steps:
+
+       - name: echo config
+         run: |
+           echo ${{ changed_files.json_properties.outputs.modulemap }}
+       
        
